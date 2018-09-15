@@ -82,10 +82,9 @@ class Verify extends Model {
         data: querystring.stringify({
           UserName: Env.get('SMS_USERNAME'),
           Password: Env.get('SMS_PASSWORD'),
-          PhoneNumber: Env.get('SMS_NUMBER'),
-          RecNumber: mobile.replace('+98','0'),
-          MessageBody: Env.get('SMS_' + type.toUpperCase() + '_TEXT') + ' : ' + verifyCode,
-          Smsclass: 1
+          From: Env.get('SMS_NUMBER'),
+          To: mobile.replace('+98','0'),
+          Text: Env.get('SMS_' + type.toUpperCase() + '_TEXT') + ' : ' + verifyCode
         })
       })
       console.log('Sms Status', response)

@@ -1,0 +1,52 @@
+{
+  "name": "adonis-api-app",
+  "version": "4.0.0",
+  "description": "Adonisjs boilerplate for API server with pre-configured JWT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node ace test"
+  },
+  "keywords": [
+    "adonisjs",
+    "adonis-app"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@adonisjs/ace": "^4.0.7",
+    "@adonisjs/auth": "^2.0.10",
+    "@adonisjs/bodyparser": "^2.0.0",
+    "@adonisjs/cors": "^1.0.3",
+    "@adonisjs/fold": "^4.0.5",
+    "@adonisjs/framework": "^4.0.28",
+    "@adonisjs/ignitor": "^1.0.14",
+    "@adonisjs/lucid": "^4.1.2",
+    "@adonisjs/redis": "^2.0.3",
+    "@adonisjs/validator": "^4.0.8",
+    "adonis-cache": "^0.3.1",
+    "axios": "^0.17.1",
+    "buffer": "^5.0.8",
+    "child_process": "^1.0.2",
+    "hasha": "^3.0.0",
+    "knex": "^0.14.2",
+    "kue": "^0.11.6",
+    "kue-scheduler": "^0.7.4",
+    "lodash": "^4.17.4",
+    "md5": "^2.2.1",
+    "moment-jalaali": "^0.7.2",
+    "mqtt": "^2.15.0",
+    "mysql": "^2.15.0",
+    "phone": "^2.0.0-rc.1",
+    "querystring": "^0.2.0",
+    "randomatic": "^3.0.0",
+    "raven": "^2.4.0",
+    "soap": "^0.23.0",
+    "util": "^0.10.4"
+  },
+  "devDependencies": {},
+  "autoload": {
+    "App": "./app"
+  }
+}

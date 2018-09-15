@@ -72,7 +72,7 @@ Route.any('/bank_saman_send', 'TransactionController.samanSend')
 Route.any('/bank_saman_revert', 'TransactionController.samanRevert')
 
 const { exec } = require('child_process')
-exec('service emqttd start', (err, stdout, stderr) => {
+exec('/root/downloads/emqx/bin/./emqx start', (err, stdout, stderr) => {
   if (err){
     console.log(err)
   }

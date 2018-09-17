@@ -87,7 +87,7 @@ class Verify extends Model {
           Text: Env.get('SMS_' + type.toUpperCase() + '_TEXT') + ' : ' + verifyCode
         })
       })
-      console.log('Sms Status', response)
+      // console.log('Sms Status', response)
 
       if (response.status === 200) {
         return {

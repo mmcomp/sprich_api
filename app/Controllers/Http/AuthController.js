@@ -714,6 +714,7 @@ class AuthController {
 
       let check = await Validations.check(request.all(), rules)
       if (check.err) {
+        console.log('E0')
         return response.status(400).send({
           status: 0,
           messages: check.messages,
@@ -765,6 +766,7 @@ class AuthController {
       const user = await User.query().where('mobile', request.input('username')).first()
 
       if (!user || user.status !== 'active' || user.client_id !== request.input('clientid')) {
+        console.log('E1')
         return response
           .status(400)
           .send({})

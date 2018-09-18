@@ -31,8 +31,7 @@ class UserController {
       status: 1,
       messages: [],
       data: {
-        fname: userData.fname,
-        lname: userData.lname
+        nickname: userData.nickname
       }
     }]
   }

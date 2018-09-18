@@ -23,6 +23,17 @@ const Time = Moment.moment()
 const _ = require('lodash')
 
 class UserController {
+  static async getData (params, user) {
+    let userData = user.toJSON();
+
+
+    return [{
+      status: 1,
+      messages: [],
+      data: userData
+    }]
+  }
+
   // دریافت اطلاعات اولیه و کلی کاربر
   // api که در اولین صفحه کلبه فراخوانی می شود
   static async get (params, user) {

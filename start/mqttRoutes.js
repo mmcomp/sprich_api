@@ -15,6 +15,8 @@ const Time = Moment.moment()
 // لیست کلیه route های داخل سیستم که مشخص می کند هر عملیات مربوط به کدام controller و method است .
 // Route List
 const routes = {
+  'UserGetData': 'User/getData',
+
   'ShowGameInfo': 'Game/info',
   'ShowMinesweeperInfo': 'Game/mineInfo',
   'ShowSmasherInfo': 'Game/smasherInfo',

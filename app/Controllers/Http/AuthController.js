@@ -721,7 +721,7 @@ class AuthController {
           data: {}
         })
       }
-
+      console.log('O0')
       if (Env.get('SERVER_CLIENT') == request.input('clientid') || Env.get('SERVER_CLIENT') == 'ad_' + request.input('clientid') || request.input('clientid') == 'terefik') {
         return response.send({})
       }
@@ -759,6 +759,7 @@ class AuthController {
         // return terefikRes
       }
       //\---TEREFIK------
+      console.log('O1')
 
       const normalMobile = await Validations.normalizeMobile(request.input('username'))
       request.all()['username'] = normalMobile[0]
@@ -771,6 +772,7 @@ class AuthController {
           .status(400)
           .send({})
       }
+      console.log('O2')
 
       // if ((request.input('topic') == Env.get('SERVER_SENDER_TOPIC') && request.input('access') == 2) ||
       //   (_.startsWith(request.input('topic'), 'client_' + user.token + '/') && request.input('access') == 1)) {

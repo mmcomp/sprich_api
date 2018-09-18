@@ -30,7 +30,10 @@ class UserController {
     return [{
       status: 1,
       messages: [],
-      data: userData
+      data: {
+        fname: userData.fname,
+        lname: userData.lname
+      }
     }]
   }
 

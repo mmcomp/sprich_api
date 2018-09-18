@@ -117,7 +117,7 @@ module.exports = async(topic, message) => {
     const params = JSON.parse(message.toString())
     Logger.info('message recived', topic, params)
     if(params.type=='ping'){
-      pubTopic = 'client_0On4IJ6EXizGBZM/'
+      pubTopic = 'client_mqFoT5rIf6y0BLp/'
       return Mqtt.publish(pubTopic + params.type, message.toString())
     }
     request_log.type = params.type

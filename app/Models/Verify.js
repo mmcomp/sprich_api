@@ -9,7 +9,7 @@ const Moment = use('App/Libs/Moment')
 const Time = Moment.moment()
 const querystring = require('querystring')
 const axios = require('axios')
-const UserSms = use('App/Models/UserSms')
+// const UserSms = use('App/Models/UserSms')
 
 class Verify extends Model {
   static get table () {
@@ -70,11 +70,11 @@ class Verify extends Model {
         // console.log('verify saved')
       }
 
-      await UserSms.createMany([{
-        user_id: -1,
-        message: mobile + ' | ' + Env.get('SMS_' + type.toUpperCase() + '_TEXT') + ' : ' + verifyCode,
-        type: 'verify'
-      }])
+      // await UserSms.createMany([{
+      //   user_id: -1,
+      //   message: mobile + ' | ' + Env.get('SMS_' + type.toUpperCase() + '_TEXT') + ' : ' + verifyCode,
+      //   type: 'verify'
+      // }])
       console.log('SMS to ', mobile.replace('+98','0'))
       const response = await axios({
         method: 'post',

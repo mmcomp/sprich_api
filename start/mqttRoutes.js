@@ -1,5 +1,3 @@
-// تابع اصلی بازی که حکم dispatcher را دارد و درخواست های mqtt را به تابع مورد نظر ارسال کرده و پاسخ را مجدد باری کاربر ارسال می کند .
-
 'use strict'
 
 const Validations = use('App/Libs/Validations')
@@ -12,94 +10,9 @@ const User = use('App/Models/User')
 const Moment = use('App/Libs/Moment')
 const Time = Moment.moment()
 
-// لیست کلیه route های داخل سیستم که مشخص می کند هر عملیات مربوط به کدام controller و method است .
 // Route List
 const routes = {
-  'UserGetData': 'User/getData',
-
-  'ShowGameInfo': 'Game/info',
-  'ShowMinesweeperInfo': 'Game/mineInfo',
-  'ShowSmasherInfo': 'Game/smasherInfo',
-  'CreateGameLand': 'Game/create',
-  'PointClickPlace': 'Game/play',
-  'GameCancel': 'Game/cancel',
-  'GameContinue': 'Game/gameContinue',
-  'SmasherFinish': 'Game/smasherFinish',
-  'MineSweeperFinish': 'Game/mineSweeperFinish',
-
-  // Profile
-  'UserGet': 'User/get',
-  'UserProfile': 'User/profile',
-  // 'UserBuyAvatar': 'User/profileBuyAvatar',
-  'UserProfilePublicSet': 'User/profilePublicSet',
-  'UserProfileSet': 'User/profileSet',
-  'UserProfileVerify': 'User/profileVerify',
-  'UserProfileNoVerify': 'User/profileNoVerify',
-  'UserBuyAvatar': 'User/buyAvatar',
-  'AvatarList': 'User/avatarList',
-  'UserDepoLoseGift': 'User/loseGift',
-  'UserDepoFlushBlue': 'User/flushBlueGift',
-  'UserDepoFlushYellow': 'User/flushYellowGift',
-  'UserCoin': 'User/coin',
-
-  // Lands
-  'UserPathInfo': 'Land/show',
-  'UserPathStore': 'Land/store',
-
-  // Fuges
-  'FugeInfo': 'Fuge/info',
-  'FugeBoost': 'Fuge/boost',
-  'FugeFill': 'Fuge/fill',
-  'FugeRemoval': 'Fuge/removal',
-  'FugeUpgrade': 'Fuge/upgrade',
-
-  // Leaderboard
-  'LeaderBoard': 'LeaderBoard/list',
-
-  // Settings
-  'SetPuzzle': 'User/puzzle',
-
-  // Antiques
-  'AntiquesList': 'Antique/list',
-  'AntiquesRemoval': 'Antique/removal',
-
-  // Stores
-  'StoreList': 'Store/list',
-  'StoreBuy': 'Store/buy',
-
-  // Products
-  'ProductList': 'Product/list',
-  'BuyProduct': 'Product/buy',
-
-  // Attack
-  'AttackFind': 'Attack/find',
-  'AttackFinish': 'Attack/finish',
-  'AttackRevenge': 'Attack/revenge',
-  'AttackSticker': 'Attack/sticker',
-  'Attack': 'Attack/attack',
-
-  // Contacts
-  'ContactList': 'Contact/list',
-  'ContactSend': 'Contact/send',
-
-  // Exchanges
-  'ExchangeList': 'Exchange/list',
-  'ExchangeDetail': 'Exchange/detail',
-  'ExchangeBuy': 'Exchange/buy',
-  'ExchangeCodes': 'Exchange/codes',
-
-  // Shield
-  'ShieldList': 'Shield/list',
-  'ShieldBuy': 'Shield/buy',
-
-  // Messages
-  'MessageList': 'Message/list',
-  'MessageAttacker': 'Message/user',
-
-  // Notifications
-  'NotificationList': 'Notification/list',
-
-  'Test': 'Test/test'
+  'UserGetData': 'User/getData'
 }
 
 module.exports = async(topic, message) => {
@@ -138,6 +51,8 @@ module.exports = async(topic, message) => {
     }
 
     // Check User
+    console.log('Checking User')
+    console.log(params)
     const user = await User.query().where('client_id', params.client_id).where('token', params.token).first()
     if (!user) {
       request_log.response_time = Moment.now('YYYY-M-D HH:mm:ss')
